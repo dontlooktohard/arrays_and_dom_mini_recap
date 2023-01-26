@@ -76,29 +76,65 @@ const data = [
 // FILTER
 
 // Exercise 1: Use the filter method to get all the friends of John Doe
-
+const getName = data.filter((person) => {
+  return (person.name === 'John Doe');
+})[0];
+console.log(getName.friends);
 // Exercise 2: Use the filter method to get all the people who live in New York
-
+const getNewYork = data.filter((person) => {
+  let info = person.address.city === "New York"
+if (info === true) {
+  return person.name
+}
+})
+console.log(getNewYork);
 // Exercise 3: Use the filter method to get all the people who are older than 30
-
+const getOld = data.filter((person) => {
+  let info = person.age > 30
+if (info === true) {
+  return person.name
+}
+})
+console.log(getOld);
 
 // MAP
 
 // Exercise 1: Use the map method to put the names of all the friends of John Doe in a single array (use also the flat method)
-
+const getJohnDoe = data.flatMap((person) => {
+  let info = person.name === "John Doe"
+  if (info === true) {
+    return person.friends
+  }
+})
+console.log(getJohnDoe);
 // Exercise 2: Use the map method to get the full addresses (street, city, state, and zip) of all the people in the data array
-
+const getAll = data.map((person) => {
+return person.address
+})
+console.log(getAll);
 // Exercise 3: Use the map method to get the hobbies of all the people in the data array in a single array
-
+const getAll2 = data.flatMap((person) => {
+  return person.hobbies
+  })
+  console.log(getAll2);
 
 // FIND
 
 // Exercise 1: Use the find method to find the first person who lives in Chicago
-
+const getChicago = data.find((person)=>{
+ return person.address.city === "Chicago"
+})
+console.log(getChicago);
 // Exercise 2: Use the find method to find the first person who is older than 30
-
+const getOld2 = data.find((person)=>{
+  return person.age > 30
+ })
+ console.log(getOld2);
 // Exercise 3: Use the find method to find the first person who has "reading" as a hobby
-
+const getReading = data.find((person)=>{
+  return person.hobbies.includes("reading")
+ })
+ console.log(getReading);
 
 // FOREACH
 
